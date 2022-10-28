@@ -6,6 +6,18 @@
                 "headerTitle": `Applications Manager`,
                 "userName": `walter.bates@acme.com`
             }
+        },
+        methods: {
+            toggleNavigation() {
+                console.log('Clicked');
+                let toggle = document.querySelector('.toggle');
+                let navigation = document.querySelector('.navigation');
+                let main = document.querySelector('.main');
+
+                
+                navigation.classList.toggle('active');
+                main.classList.toggle('active');
+            }
         }
     }
 </script>
@@ -13,7 +25,7 @@
 <template>
     <header>
         <div class="title">
-            <span class="toggle">
+            <span class="toggle" @click="toggleNavigation">
                 <ion-icon name="menu-outline"></ion-icon>
             </span>
             <h2>{{headerTitle}}</h2>
@@ -31,13 +43,15 @@
 
 <style>
     header {
+        position: fixed;
         max-width: 100vW;
         width: 100vW;
-        height: 3.5rem;
+        height: 4rem;
         background: var(--color-background-blue);
         color: var(--vt-c-white);
         display: flex;
         align-items: center;
+        z-index: 10;
     }
 
     header .title {
@@ -57,6 +71,7 @@
         align-items: center;
         font-size: 3rem;
         cursor: pointer;
+        z-index: 1000;
     }
 
     header .title h2 {
@@ -78,6 +93,5 @@
         align-items: center;
         font-size: 1.25rem;
         padding: .5rem;
-
     }
 </style>
