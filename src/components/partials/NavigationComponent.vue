@@ -6,13 +6,12 @@
                 headerTitle: `Apps Manager`,
                 hovered: false,
                 navigations: [
-                    {id:1, title: 'Apps Manager', name: 'home-outline'},
-                    {id:2, title: 'Dashboard', name: 'home-outline'},
-                    {id:3, title: 'Deployments', name: 'home-outline'},
-                    {id:4, title: 'Codes', name: 'home-outline'},
-                    {id:5, title: 'Projects', name: 'home-outline'},
-                    {id:6, title: 'Releases', name: 'home-outline'},
-                    {id:7, title: 'Settings', name: 'home-outline'},
+                    {id:1, title: 'Dashboard', name: 'home-outline'},
+                    {id:2, title: 'Deployments', name: 'home-outline'},
+                    {id:3, title: 'Codes', name: 'home-outline'},
+                    {id:4, title: 'Projects', name: 'home-outline'},
+                    {id:5, title: 'Releases', name: 'home-outline'},
+                    {id:6, title: 'Settings', name: 'home-outline'},
 
                 ]
             }
@@ -76,7 +75,7 @@
 
 .navigation ul {
     position: absolute;
-    top: 0;
+    top: 3rem;
     left: 0;
     width: 100%;
 }
@@ -92,11 +91,6 @@
 .navigation ul li.hovered {
     background: var(--vt-c-white);
 }
-
-.navigation ul li:nth-child(1) {
-    margin-bottom: 40px;
-    pointer-events: none;
-  }
 
 .navigation ul li a {
     position: relative;
