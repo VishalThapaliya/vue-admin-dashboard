@@ -35,7 +35,7 @@
 <template>
     
     <section class="navigation">
-
+        
         <ul>
             <li 
                 v-for="navigation in navigations" 
@@ -60,17 +60,18 @@
 
 /*==================== NAVIGATION =========================*/
 .navigation {
-    position: fixed;
-    width: 15%;
-    height: 100%;
+    position: absolute;
+    width: 13rem;
+    height: calc(100vh - 4rem);
     background-color: var(--color-background-blue);
     border-left: 10px solid var(--color-background-blue);
     transition: 0.5s;
     overflow: hidden;
+    top: 4rem;
 }
 
 .navigation.active {
-    width: 100px;
+    width: 5rem;
 }
 
 .navigation ul {
@@ -89,7 +90,7 @@
 
 .navigation ul li:hover,
 .navigation ul li.hovered {
-    background: var(--vt-c-white);
+    background: var(--vt-c-white-mute);
 }
 
 .navigation ul li a {
@@ -148,7 +149,7 @@
     height: 50px;
     background: transparent;
     border-radius: 50%;
-    box-shadow: 35px 35px 0 10px var(--vt-c-white);
+    box-shadow: 35px 35px 0 10px var(--vt-c-white-mute);
     pointer-events: none;
 }
 
@@ -162,7 +163,7 @@
     height: 50px;
     background: transparent;
     border-radius: 50%;
-    box-shadow: 35px -35px 0 10px var(--vt-c-white);
+    box-shadow: 35px -35px 0 10px var(--vt-c-white-mute);
     pointer-events: none;
 }
 
@@ -172,7 +173,7 @@
     }
     
     .navigation.active {
-        width: 15%;
+        width: 13rem;
         left: 0;
     }
 }
