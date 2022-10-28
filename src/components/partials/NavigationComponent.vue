@@ -3,10 +3,10 @@
         name: "NavigationComponent",
         data() {
             return {
-                headerTitle: `Platform Management`,
+                headerTitle: `Apps Manager`,
                 hovered: false,
                 navigations: [
-                    {id:1, title: 'Platform Management', name: 'home-outline'},
+                    {id:1, title: 'Apps Manager', name: 'home-outline'},
                     {id:2, title: 'Dashboard', name: 'home-outline'},
                     {id:3, title: 'Deployments', name: 'home-outline'},
                     {id:4, title: 'Codes', name: 'home-outline'},
@@ -16,7 +16,20 @@
 
                 ]
             }
+        },
+        methods: {
+            activeLink() {
+                let list = document.querySelectorAll('.navigation li');
+                console.log("list", list);
+                /*
+                list.forEach((item) => {
+                    item.classList.remove('hovered');
+                    this.classList.add('hovered');
+                } 
+                */ 
+            } 
         }
+
     })
 </script>
 
@@ -30,7 +43,7 @@
                 :key="navigation.id"
                 @mouseenter="hovered = true"
                 @mouseout="hovered = false"
-                class="listItem">
+                class="">
                 <a href="#">
                     <span class="icon">
                         <ion-icon name="home-outline"></ion-icon>
@@ -75,7 +88,7 @@
     border-radius: 30px 0 0 30px;
 }
 
-.navigation ul liLhover,
+.navigation ul li:hover,
 .navigation ul li.hovered {
     background: var(--vt-c-white);
 }
