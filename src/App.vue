@@ -1,5 +1,5 @@
 <script setup>
-  import NavigationComponent from './components/NavigationComponent.vue';
+  import NavigationComponent from './components/partials/NavigationComponent.vue';
   import HeaderComponent from './components/partials/HeaderComponent.vue';
   import MainComponent from './components/MainComponent.vue';
 </script>
