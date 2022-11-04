@@ -8,7 +8,7 @@
   
   <div class="main__container">
     
-    <HeaderComponent />
+    <HeaderComponent headerTitle="Applications Manager" />
     <NavigationComponent />
     <MainComponent />
     
