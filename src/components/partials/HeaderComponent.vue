@@ -17,6 +17,7 @@
             toggleNavigation() {
                 let navigation = document.querySelector('.navigation');
                 let main = document.querySelector('.main');
+                let dashboardMenu = document.querySelector('.navigation .dashboard a');
                 
                 navigation.classList.toggle('active');
                 main.classList.toggle('active');

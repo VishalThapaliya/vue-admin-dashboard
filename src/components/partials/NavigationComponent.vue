@@ -5,14 +5,13 @@
             return {
                 headerTitle: `Apps Manager`,
                 hovered: false,
-                navigations: [
-                    {id:1, title: 'Dashboard', name: 'home-outline'},
-                    {id:2, title: 'Deployments', name: 'home-outline'},
-                    {id:3, title: 'Codes', name: 'home-outline'},
-                    {id:4, title: 'Projects', name: 'home-outline'},
-                    {id:5, title: 'Releases', name: 'home-outline'},
-                    {id:6, title: 'Settings', name: 'home-outline'},
-
+                monitorings: [
+                    {id: 1, title: 'Health', icon: 'fa-heart-pulse'},
+                    {id: 2, title: 'Logs', icon: 'fa-file-waveform'}
+                ],
+                administrations: [
+                    {id: 1, title: 'Log level', icon: 'fa-file-pen'},
+                    {id: 2, title: 'License', icon: 'fa-key'}
                 ]
             }
         },
@@ -35,23 +34,44 @@
 <template>
     
     <section class="navigation">
+        <div class="dashboard">
+            <a href="#">
+                <font-awesome-icon icon="fa-solid fa-house" />
+                Dashboard
+            </a>
         
-        <ul>
-            <li 
-                v-for="navigation in navigations" 
-                :key="navigation.id"
-                @mouseenter="hovered = true"
-                @mouseout="hovered = false"
-                class="">
-                <a href="#">
-                    <span class="icon">
-                        <ion-icon name="home-outline"></ion-icon>
-                    </span>
+            <div class="monitoring">
+                <h3>Monitoring</h3>
+                <ul>
+                    <li v-for="monitoring in monitorings" :key="monitoring.id" @mouseenter="hovered = true" @mouseout="hovered = false">
+                        <a href="#">
+                            <font-awesome-icon v-bind:icon="fa-solid + ' ' + monitoring.icon"  />
+                            <span class="title">{{ monitoring.title }}</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
 
-                    <span class="title">{{ navigation.title }}</span>
-                </a>
-            </li>
-        </ul>
+            <div class="administration">
+                <h3>Administration</h3>
+                <ul>
+                    <li v-for="admin in administrations" :key="admin.id" @mouseenter="hovered = true" @mouseout="hovered = false">
+                        <a href="#">
+                            <font-awesome-icon v-bind:icon="fa-solid + ' ' + admin.icon" />
+                            <span class="title">{{ admin.title }}</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+        
+        </div>
+        
+        
+        
+
+        
+
     </section>
     
 </template>
@@ -74,6 +94,73 @@
     width: 5rem;
 }
 
+.navigation .dashboard {
+    position: absolute;
+    top: 3rem;
+    left: 0;
+    width: 100%;
+    padding-left: 1rem;
+}
+
+.navigation .dashboard a {
+    font-size: 1.15rem;
+    text-decoration: none;
+    color: var(--vt-c-white);
+    line-height: 1.5;
+
+}
+
+.navigation .dashboard a svg {
+    padding-right: 0.75rem;
+}
+
+.navigation .monitoring,
+.navigation .administration {
+    position: relative;
+    top: 1rem;
+    color: var(--vt-c-white);
+    margin-top: 0.5rem;
+}
+
+.navigation .monitoring ul,
+.navigation .administration ul {
+    width: 100%;
+}
+
+.navigation .monitoring ul li,
+.navigation .administration ul li {
+    position: relative;
+    width: 100%;
+    list-style: none;
+    border-radius: 30px 0 0 30px;
+    padding: 0.5rem;
+}
+
+.navigation .monitoring ul li:hover,
+.navigation .monitoring ul li.hovered,
+.navigation .administration ul li:hover,
+.navigation .administration ul li.hovered {
+    background: var(--vt-c-white);
+}
+
+.navigation .monitoring ul li a,
+.navigation .administration ul li a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    color: var(--vt-c-white);
+    text-decoration: none;
+}
+
+.navigation .monitoring ul li:hover a,
+.navigation .monitoring ul li.hovered a,
+.navigation .administration ul li:hover a,
+.navigation .administration ul li.hovered a {
+    color: var(--color-background-blue);
+}
+
+/*
 .navigation ul {
     position: absolute;
     top: 3rem;
@@ -113,6 +200,7 @@
     height: 60px;
     line-height: 70px;
     text-align: center;
+    font-size: 1rem;
 }
 
 .navigation ul li a .icon .logo {
@@ -137,8 +225,9 @@
     text-align: start;
     white-space: nowrap;
 }
-
+*/
 /*==================== NAVIGATION CURVE BORDER =========================*/
+/*
 .navigation ul li:hover a::before,
 .navigation ul li.hovered a::before {
     content: '';
@@ -190,4 +279,5 @@
         left: 0;
     }
 }
+*/
 </style>
