@@ -14,16 +14,16 @@
 
 .main {
     position: absolute;
-    width: calc(100vw - 13rem);
+    width: calc(100vw - 250px);
     min-height: 100vh;
     background: var(--vt-c-white-mute);
-    left: 13rem;
+    left: 250px;
     transition: 0.5s;
 }
 
 .main.active {
-    width: calc(100vw - 5rem);
-    left: 5rem;
+    width: calc(100vw - 75px);
+    left: 75px;
 }
 
 @media screen and (max-width: 991px) {
