@@ -1,4 +1,5 @@
 <script>
+/**
     export default({
         name: "NavigationComponent",
         data() {
@@ -19,109 +20,149 @@
             activeLink() {
                 let list = document.querySelectorAll('.navigation li');
                 console.log("list", list);
-                /*
-                list.forEach((item) => {
-                    item.classList.remove('hovered');
-                    this.classList.add('hovered');
-                } 
-                */ 
-            } 
+                
+            }
         }
-
+    
     })
+*/
 </script>
 
 <template>
-    
-    <section class="navigation">
-        <div class="dashboard">
-            <a href="#">
-                <font-awesome-icon icon="fa-solid fa-house" />
-                Dashboard
-            </a>
-        
-            <div class="monitoring">
-                <h3>Monitoring</h3>
-                <ul>
-                    <li v-for="monitoring in monitorings" :key="monitoring.id" @mouseenter="hovered = true" @mouseout="hovered = false">
-                        <a href="#">
-                            <font-awesome-icon v-bind:icon="fa-solid + ' ' + monitoring.icon"  />
-                            <span class="title">{{ monitoring.title }}</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
 
-            <div class="administration">
-                <h3>Administration</h3>
-                <ul>
-                    <li v-for="admin in administrations" :key="admin.id" @mouseenter="hovered = true" @mouseout="hovered = false">
-                        <a href="#">
-                            <font-awesome-icon v-bind:icon="fa-solid + ' ' + admin.icon" />
-                            <span class="title">{{ admin.title }}</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            
-        
+    <aside class="navigation">
+        <div class="dashboard">
+            <a href="#" style="--clr:#ffa117;">
+                <span class="icon">
+                    <font-awesome-icon icon="fa-solid fa-house" />
+                </span>
+                <span class="text">
+                    Dashboard
+                </span>
+                
+            </a>
         </div>
         
-        
-        
+        <div class="monitoring">
+            <h3>Monitoring</h3>
+            <ul>
+                <li v-for="monitoring in monitorings" :key="monitoring.id" @mouseenter="hovered = true" @mouseout="hovered = false">
+                    <a href="#">
+                        <span class="icon">
+                            <font-awesome-icon v-bind:icon="fa-solid + ' ' + monitoring.icon"  />
+                        </span>
+                        
+                        <span class="text">{{ monitoring.title }}</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
 
-        
+        <div class="administration">
+            <h3>Administration</h3>
+            <ul>
+                <li v-for="admin in administrations" :key="admin.id" @mouseenter="hovered = true" @mouseout="hovered = false">
+                    <a href="#">
+                        <span class="icon">
+                            <font-awesome-icon v-bind:icon="fa-solid + ' ' + admin.icon" />
+                        </span>
+                        
+                        <span class="text">{{ admin.title }}</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
 
-    </section>
+    </aside>
     
 </template>
 
 <style>
 
+
+
 /*==================== NAVIGATION =========================*/
+/*
 .navigation {
     position: absolute;
-    width: 13rem;
+    width: 5rem;
     height: calc(100vh - 4rem);
     background-color: var(--color-background-blue);
     border-left: 10px solid var(--color-background-blue);
     transition: 0.5s;
     overflow: hidden;
     top: 4rem;
+    padding: 1rem 0;
+    font-size: 2rem;
 }
 
 .navigation.active {
-    width: 5rem;
+    width: 13rem;
+    font-size: 1.15rem;
 }
 
 .navigation .dashboard {
-    position: absolute;
-    top: 3rem;
-    left: 0;
     width: 100%;
-    padding-left: 1rem;
+    padding: 0.5rem 0;
 }
 
 .navigation .dashboard a {
-    font-size: 1.15rem;
     text-decoration: none;
     color: var(--vt-c-white);
     line-height: 1.5;
 
 }
 
-.navigation .dashboard a svg {
-    padding-right: 0.75rem;
+.navigation .dashboard a .text,
+.navigation .monitoring a .text,
+.navigation .administration a .text,
+.navigation .monitoring h3,
+.navigation .administration h3 {
+    position: relative;
+   /* padding: 0 15px;*/
+   /* color: var(--background-dark);
+    align-items: center;
+    opacity: 0;
+    display: none;
+    transition: 0.5s;
+    display: none;
+    text-align: center;
+    padding-left: 0.5rem;
+}
+*/
+/*
+.navigation .monitoring h3,
+.navigation .administration h3 {
+    padding: 0;
+}
+
+.navigation.active .dashboard a .text,
+.navigation.active .monitoring a .text,
+.navigation.active .administration a .text,
+.navigation.active .monitoring h3,
+.navigation.active .administration h3 {
+    display: inline-block;
+    opacity: 1;
+    transition: display 0.5s;
 }
 
 .navigation .monitoring,
 .navigation .administration {
+    border: 1px solid;
+    /*
     position: relative;
     top: 1rem;
-    color: var(--vt-c-white);
     margin-top: 0.5rem;
+    */
+   /* color: var(--vt-c-white);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
+*/
 
+/*
 .navigation .monitoring ul,
 .navigation .administration ul {
     width: 100%;
@@ -140,16 +181,17 @@
 .navigation .monitoring ul li.hovered,
 .navigation .administration ul li:hover,
 .navigation .administration ul li.hovered {
-    background: var(--vt-c-white);
+    background: var(--vt-c-white-mute);
 }
 
 .navigation .monitoring ul li a,
 .navigation .administration ul li a {
     position: relative;
     display: flex;
+    justify-content: flex-start;
     align-items: center;
     width: 100%;
-    color: var(--vt-c-white);
+    color: var(--vt-c-white-mute);
     text-decoration: none;
 }
 
@@ -159,7 +201,7 @@
 .navigation .administration ul li.hovered a {
     color: var(--color-background-blue);
 }
-
+*/
 /*
 .navigation ul {
     position: absolute;
@@ -232,8 +274,8 @@
 .navigation ul li.hovered a::before {
     content: '';
     position: absolute;
-    right: 0;
-    top: -50px;
+    right: -8px;
+    top: -58px;
     width: 50px;
     height: 50px;
     background: transparent;
@@ -246,8 +288,8 @@
 .navigation ul li.hovered a::after {
     content: '';
     position: absolute;
-    right: 0;
-    bottom: -50px;
+    right: -8px;
+    bottom: -58px;
     width: 50px;
     height: 50px;
     background: transparent;
@@ -279,5 +321,6 @@
         left: 0;
     }
 }
+
 */
 </style>
