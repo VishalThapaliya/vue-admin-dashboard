@@ -19,15 +19,3 @@ library.add(faBars, faUserCircle, faChevronDown, faGear, faRightFromBracket, faH
 createApp(App)
 .component('font-awesome-icon', FontAwesomeIcon)
 .mount('#app');
-
-/*
-monitorings: [
-    {id: 1, title: 'Health', icon: 'fa-heart-pulse'},
-    {id: 2, title: 'Logs', icon: 'fa-file-circle-info'}
-],
-administrations: [
-    {id: 1, title: 'Log level', icon: 'fa-file-pen'},
-    {id: 2, title: 'License', icon: 'fa-key'}
-]
-
-*/

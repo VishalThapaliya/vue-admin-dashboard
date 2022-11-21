@@ -2,7 +2,8 @@
  // import NavigationComponent from './components/partials/NavigationComponent.vue';
   import HeaderComponent from './components/partials/HeaderComponent.vue';
   import MainComponent from './components/MainComponent.vue';
-  import SidebarComponent from './components/partials/SidebarComponent.vue'
+  import SidebarComponent from './components/partials/SidebarComponent.vue';
+  import HomeComponent from './components/HomeComponent.vue';
 </script>
 
 <template>
@@ -19,6 +20,7 @@
 
 
     <MainComponent />
+
     
   </div>
   

@@ -1,12 +1,21 @@
 <script>
+    import HomeComponent from './HomeComponent.vue';
+    import HealthComponent from './HealthComponent.vue';
+
     export default {
-        name: `MainComponent`
+        name: `MainComponent`,
+        components: {
+            HomeComponent,
+            HealthComponent
+        }
+        
     }
 </script>
 
 <template>
     <main class="main">
-
+        <HomeComponent />
+        <HealthComponent />
     </main>
 </template>
 
@@ -15,10 +24,12 @@
 .main {
     position: absolute;
     width: calc(100vw - 250px);
-    min-height: 100vh;
+    min-height: calc(100vh - 4rem);
+    top: 4rem;
     background: var(--vt-c-white-mute);
     left: 250px;
     transition: 0.5s;
+    padding: 1rem 2rem;
 }
 
 .main.active {

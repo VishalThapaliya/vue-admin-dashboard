@@ -1,13 +1,37 @@
 <script>
     export default {
         name: "SideBarComponent",
+        data() {
+            return {
+                isActive_id: 1,
+                menus: [
+                    {id: 1, name: 'Home', icon: 'fa-home', redirect: '/', color: '#f44800', class: 'active'},
+                    {id: 2, name: 'Health', icon: 'fa-heart-pulse', redirect: '/health', color: '#c80707c7', class: ''},
+                    {id: 3, name: 'Logs', icon: 'fa-file-waveform', redirect: '/logs', color: '#f44336', class: ''},
+                    {id: 4, name: 'Log level', icon: 'fa-file-pen', redirect: '/log-level', color: '#f56324', class: ''},
+                    {id: 5, name: 'License', icon: 'fa-key', redirect: '/license', color: '#bb2020', class: ''},
+                    {id: 6, name: 'Settings', icon: 'fa-gear', redirect: '/settings', color: '#7437e7ab', class: ''},
+                ]
+            }
+        },
         methods: {
+            /*
             sidebarToggle() {
                 let list = document.querySelectorAll('.list');
-
-                list.forEach((item) => {
+                
+                list.forEach(item, () => {
+                    
                     item.classList.remove('active');
-                    item.classList.add('active');
+                    this.isActive.classList.add('active');
+                })
+            }
+            */
+        },
+        computed: {
+            customMenu() {
+                return this.menus.map(menu => {
+                    menu.class = this.isActive_id === menu.id ? 'active' : '';
+                    return menu;
                 })
             }
         }
@@ -17,6 +41,21 @@
 <template>
     <aside class="navigation active">
         <ul>
+            <li v-for="menu in customMenu" 
+                :key="menu.id" class="list" 
+                :id="menu.id" 
+                :class="menu.class" 
+                @click="isActive_id = menu.id">
+                <a href="#" :style="'--clr:' + menu.color">
+                    <span class="icon">
+                        <font-awesome-icon v-bind:icon="fa-solid + ' ' + menu.icon"  />
+                    </span>
+                    <span class="text">
+                        {{ menu.name }}
+                    </span>
+                </a>
+            </li>
+            <!--
             <li class="list active" @click="sidebarToggle">
                 <a href="#" style="--clr:#f44336;">
                     <span class="icon">
@@ -70,6 +109,7 @@
                     <span class="text">Settings</span>
                 </a>
             </li>
+            -->
         </ul>
     </aside>
 </template>
@@ -146,7 +186,7 @@
     box-shadow: 6px -4px 0 2px var(--vt-c-white-mute);
     transform: scale(0);
     transform-origin: bottom right;
-    transform: 0.6s;
+    transition: 0.6s;
 }
 
 .navigation ul li.active::after {
@@ -176,6 +216,7 @@
     border: 6px solid transparent;
     transition: 0.5s;
     font-size: 20px;
+    color: var(--vt-c-white-soft);
 }
 
 .navigation ul li.active a .icon {
